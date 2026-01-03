@@ -2,7 +2,7 @@ package mx.com.qtxcotizadorM2DiploArq7.negocio;
 
 import java.math.BigDecimal;
 
-public class Monitor extends Articulo {
+public class Monitor extends Articulo implements IComponentePc{
 
     protected Monitor(String marca, String modelo, BigDecimal precioBase, BigDecimal costo, String sku) {
 		super(marca, modelo, precioBase, costo, sku);
@@ -32,5 +32,10 @@ public class Monitor extends Articulo {
         // Menos de 3 → sin descuento
         return subtotal;
     }
+
+	@Override
+	public Articulo getArticulo() {
+		return this;
+	}
 
 }

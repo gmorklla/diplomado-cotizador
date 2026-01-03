@@ -2,7 +2,7 @@ package mx.com.qtxcotizadorM2DiploArq7.negocio;
 
 import java.math.BigDecimal;
 
-public class TarjetaVideo extends Articulo {
+public class TarjetaVideo extends Articulo implements IComponentePc{
 	public static final int PROMO_LLEVE_NXM_VALOR_N = 3;
 	public static final int PROMO_LLEVE_NXM_VALOR_M = 2; 
 	
@@ -45,6 +45,11 @@ public class TarjetaVideo extends Articulo {
 	        BigDecimal total = precioBase.multiply(BigDecimal.valueOf(unidadesAPagar));
 			return total;
 		}
+
+	@Override
+	public Articulo getArticulo() {
+		return this;
+	}
 
 
 }

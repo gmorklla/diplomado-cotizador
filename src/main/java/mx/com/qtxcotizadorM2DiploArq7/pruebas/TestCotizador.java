@@ -5,9 +5,8 @@ import java.util.Map;
 
 import mx.com.qtxcotizadorM2DiploArq7.negocio.Articulo;
 import mx.com.qtxcotizadorM2DiploArq7.negocio.Cotizador;
-import mx.com.qtxcotizadorM2DiploArq7.negocio.DiscoDuro;
+import mx.com.qtxcotizadorM2DiploArq7.negocio.IComponentePc;
 import mx.com.qtxcotizadorM2DiploArq7.negocio.Pc;
-import mx.com.qtxcotizadorM2DiploArq7.negocio.TarjetaVideo;
 import mx.com.qtxcotizadorM2DiploArq7.negocio.TipoArticulo;
 
 public class TestCotizador {
@@ -42,7 +41,7 @@ public class TestCotizador {
 //        TarjetaVideo ram = new TarjetaVideo("Nvidia","NAV-500",new BigDecimal("800"),new BigDecimal("400"),"NV-16-23",
 //        		"16GB");
 
-        Pc pc = new Pc("Dell","PC Gamer", "DGAME-3411", List.of(disco,ram));
+        Pc pc = new Pc("Dell","PC Gamer", "DGAME-3411", List.of((IComponentePc) disco,(IComponentePc)ram));
 
         // Crear cotizador
         Cotizador cot = new Cotizador();
