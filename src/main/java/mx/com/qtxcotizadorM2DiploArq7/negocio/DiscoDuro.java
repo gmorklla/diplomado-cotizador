@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class DiscoDuro extends Articulo {
     private String capacidadAlmacenamiento;
 
-    public DiscoDuro(String marca, String modelo, BigDecimal precioBase, BigDecimal costo, String sku,
+    protected DiscoDuro(String marca, String modelo, BigDecimal precioBase, BigDecimal costo, String sku,
     		String capacidadAlmacenamiento) {
 		super(marca, modelo, precioBase, costo, sku);
 		this.capacidadAlmacenamiento = capacidadAlmacenamiento;

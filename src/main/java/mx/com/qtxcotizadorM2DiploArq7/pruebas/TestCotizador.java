@@ -1,12 +1,14 @@
 package mx.com.qtxcotizadorM2DiploArq7.pruebas;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import mx.com.qtxcotizadorM2DiploArq7.negocio.Articulo;
 import mx.com.qtxcotizadorM2DiploArq7.negocio.Cotizador;
 import mx.com.qtxcotizadorM2DiploArq7.negocio.DiscoDuro;
 import mx.com.qtxcotizadorM2DiploArq7.negocio.Pc;
 import mx.com.qtxcotizadorM2DiploArq7.negocio.TarjetaVideo;
+import mx.com.qtxcotizadorM2DiploArq7.negocio.TipoArticulo;
 
 public class TestCotizador {
 
@@ -15,9 +17,13 @@ public class TestCotizador {
     }
 
     public static void testCotizador() {
+    	
+    	Map<String,Object> mapParams = Map.of(Articulo.CVE_MARCA,"Seagate",
+    			                              Articulo.CVE_MODELO, "Disco SSD 1TB");
+    	Articulo.crearArticulo(TipoArticulo.DISCO_DURO,mapParams);
 
-    	DiscoDuro disco = new DiscoDuro("Seagate","Disco SSD 1TB",new BigDecimal("1200"),
-    			new BigDecimal("600"),"X-SSD-1","1Tb");
+//    	DiscoDuro disco = new DiscoDuro("Seagate","Disco SSD 1TB",new BigDecimal("1200"),
+//    			new BigDecimal("600"),"X-SSD-1","1Tb");
 
         TarjetaVideo ram = new TarjetaVideo("Nvidia","NAV-500",new BigDecimal("800"),new BigDecimal("400"),"NV-16-23",
         		"16GB");

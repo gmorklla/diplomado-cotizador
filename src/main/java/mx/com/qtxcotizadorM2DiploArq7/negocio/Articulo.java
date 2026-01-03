@@ -1,14 +1,22 @@
 package mx.com.qtxcotizadorM2DiploArq7.negocio;
 import java.math.BigDecimal;
+import java.util.Map;
 
 public abstract class Articulo {
+	public static final String CVE_MARCA = "marca";
+	public static final String CVE_MODELO = "modelo";
+	public static final String CVE_PRECIO_BASE = "precioBase";
+	public static final String CVE_COSTO = "costo";
+	public static final String CVE_SKU = "sku";
+	public static final String CVE_CAPACIDAD_ALM = "capacidad";
+	
     private String marca;
     private String modelo;
     protected BigDecimal precioBase;
     private BigDecimal costo;
-    private String sku;   
+    private String sku;
     
-    public Articulo(String marca, String modelo, BigDecimal precioBase, BigDecimal costo, String sku) {
+    protected Articulo(String marca, String modelo, BigDecimal precioBase, BigDecimal costo, String sku) {
 		super();
 		this.marca = marca;
 		this.modelo = modelo;
@@ -16,6 +24,25 @@ public abstract class Articulo {
 		this.costo = costo;
 		this.sku = sku;
 	}
+
+    public static Articulo crearArticulo(TipoArticulo tipo, Map<String,Object> mapValores) {
+    	String marca = (String) mapValores.get(Articulo.CVE_MARCA);
+    	String modelo = (String) mapValores.get(Articulo.CVE_MODELO);
+    	switch(tipo) {
+    	case DISCO_DURO ->{  		
+    		Articulo disco = new DiscoDuro(marca, modelo, null, null, null, null);
+    		return disco;
+    	}
+    	case MONITOR ->{
+    		Articulo monitor = new Monitor(marca, modelo, null, null, null);
+    		return monitor;
+    	}
+    	
+    	}
+    	return null;
+    };
+    
+
 	// ----- Getters y Setters -----
 
     public String getMarca() { return marca; }

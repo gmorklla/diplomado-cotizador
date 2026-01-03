@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Monitor extends Articulo {
 
-    public Monitor(String marca, String modelo, BigDecimal precioBase, BigDecimal costo, String sku) {
+    protected Monitor(String marca, String modelo, BigDecimal precioBase, BigDecimal costo, String sku) {
 		super(marca, modelo, precioBase, costo, sku);
 	}
 

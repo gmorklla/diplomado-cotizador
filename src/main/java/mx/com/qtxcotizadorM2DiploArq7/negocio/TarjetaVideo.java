@@ -8,7 +8,7 @@ public class TarjetaVideo extends Articulo {
 	
     private String memoria;
 
-    public TarjetaVideo(String marca, String modelo, BigDecimal precioBase, BigDecimal costo, String sku,
+    protected TarjetaVideo(String marca, String modelo, BigDecimal precioBase, BigDecimal costo, String sku,
 			String memoria) {
 		super(marca, modelo, precioBase, costo, sku);
 		this.memoria = memoria;
