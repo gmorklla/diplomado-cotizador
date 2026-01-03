@@ -21,7 +21,7 @@ public class Cotizador {
             int cantidad = lstCantidades.get(i);
 
             BigDecimal subtotal = art.cotizar(cantidad);
-            System.out.println(art.getModelo() + " x" + cantidad + ": " + subtotal);
+            System.out.println(art.getModelo() + " x " + cantidad + " : " + subtotal);
 
             total = total.add(subtotal);
         }

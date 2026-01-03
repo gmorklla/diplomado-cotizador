@@ -23,10 +23,10 @@ public class Pc extends Articulo {
     
     @Override
 	public BigDecimal cotizar(Integer cantidad) {
-        if (precioBase == null) {
-            return BigDecimal.ZERO;
-        }
-        
+//        if (precioBase == null) {
+//            return BigDecimal.ZERO;
+//        }
+//        
         BigDecimal total = new BigDecimal("0.00");
         for(Articulo cmpI:this.listComponentes) {
         	total = total.add(cmpI.cotizar(1));

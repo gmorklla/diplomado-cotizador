@@ -9,6 +9,7 @@ public abstract class Articulo {
 	public static final String CVE_COSTO = "costo";
 	public static final String CVE_SKU = "sku";
 	public static final String CVE_CAPACIDAD_ALM = "capacidad";
+	public static final String CVE_MEMORIA = "memoria";
 	
     private String marca;
     private String modelo;
@@ -25,20 +26,36 @@ public abstract class Articulo {
 		this.sku = sku;
 	}
 
+    /**
+     * Factory Method para centralizar la creación de suntipos de artículo -exceptuando la pc-
+     * @param tipo
+     * @param mapValores
+     * @return
+     */
     public static Articulo crearArticulo(TipoArticulo tipo, Map<String,Object> mapValores) {
+//    	System.out.println(mapValores);
     	String marca = (String) mapValores.get(Articulo.CVE_MARCA);
     	String modelo = (String) mapValores.get(Articulo.CVE_MODELO);
-    	switch(tipo) {
-    	case DISCO_DURO ->{  		
-    		Articulo disco = new DiscoDuro(marca, modelo, null, null, null, null);
-    		return disco;
-    	}
-    	case MONITOR ->{
-    		Articulo monitor = new Monitor(marca, modelo, null, null, null);
-    		return monitor;
-    	}
+    	BigDecimal precioBase = (BigDecimal) mapValores.get(Articulo.CVE_PRECIO_BASE); 
+    	BigDecimal costo = (BigDecimal) mapValores.get(Articulo.CVE_COSTO);
+    	String sku = (String) mapValores.get(Articulo.CVE_SKU);
     	
-    	}
+    	switch(tipo) {
+	    	case DISCO_DURO ->{  		
+	        	String capacidadAlm = (String) mapValores.get(Articulo.CVE_CAPACIDAD_ALM);
+	    		Articulo disco = new DiscoDuro(marca, modelo, precioBase, costo, sku, capacidadAlm);
+	    		return disco;
+	    	}
+	    	case TARJETA_VIDEO ->{
+	    		String memoria = (String) mapValores.get(Articulo.CVE_MEMORIA);
+	    		Articulo tarjeta = new TarjetaVideo(marca, modelo, precioBase, costo, sku, memoria);
+	    		return tarjeta;
+	    	}
+	    	case MONITOR ->{
+	    		Articulo monitor = new Monitor(marca, modelo, precioBase, costo, sku);
+	    		return monitor;
+	    	}
+     	}
     	return null;
     };
     
